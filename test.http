@@ -1,0 +1,14 @@
+POST http://localhost:4401 HTTP/1.1
+content-type: application/json
+
+{
+    "category": "友達",
+    "people": 4,
+    "activity": "川でのアクティビティ",
+    "grade": "手ごろな価格でそこそこ楽しい体験",
+    "period": 1,
+    "mean": "電車",
+    "departure": "岐阜県",
+    "stay": "日帰り",
+    "money": 30000
+}
