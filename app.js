@@ -9,7 +9,7 @@ var app = express();
 app.use(express.json());
 app.use(cors());
 
-var server = app.listen(3000, function () {
+var server = app.listen(80, function () {
     console.log("Node.js is listening to PORT:" + server.address().port);
 });
 
