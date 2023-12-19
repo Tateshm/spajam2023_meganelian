@@ -22,6 +22,8 @@ exports.streamChatCompletion = async function* (params) {
       .toString("utf8")
       .split("\n")
       .filter((line) => line.trim().startsWith("data: "));
+    
+    console.log(lines)
 
     for (const line of lines) {
       const message = line.replace(/^data: /, "");
@@ -29,10 +31,15 @@ exports.streamChatCompletion = async function* (params) {
         return;
       }
 
-      const json = JSON.parse(message);
-      const token = json.choices[0].delta.content;
-      if (token) {
-        yield token;
+      console.log(message)
+      try{
+        const json = JSON.parse(message);
+        const token = json.choices[0].delta.content;
+        if (token) {
+          yield token;
+        }
+      }catch{
+        console.log("JSON connot parse")
       }
     }
   }
