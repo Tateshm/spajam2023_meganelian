@@ -2,14 +2,17 @@ require('dotenv').config();
 const streamChatCompletion = require("./streamChatCompletion").streamChatCompletion;
 
 var express = require("express");
-const cors = require('cors');
+const cors = require('cors')
+
+const port = process.env.PORT || 3000;
 
 var app = express();
 
 app.use(express.json());
 app.use(cors());
 
-var server = app.listen(4401, function () {
+
+var server = app.listen(port, function () {
     console.log("Node.js is listening to PORT:" + server.address().port);
 });
 
